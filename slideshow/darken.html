@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Timer</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        #myInput {
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+        }
+
+        #content {}
+
+        #darken {
+            height: 100vh;
+            width: 100vw;
+            background-color: rgba(0, 0, 0, 0.7);
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script>
+        $(document).ready(init);
+        function init() {
+            $("#myInput").focus(focusHandler).blur(blurHandler);
+        }
+        function focusHandler() {
+            $("#darken").show();
+        }
+        function blurHandler() {
+            $("#darken").hide();
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="myInput">
+    <div id="content">
+        <br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr><br>
+        <hr>
+    </div>
+    <div id="darken"></div>
+
+</body>
+
+</html>
