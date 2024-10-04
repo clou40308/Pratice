@@ -7,37 +7,79 @@
 	<style>
 	</style>
 	<script>
+		/*
 		//建立時間物件
-
-		//取得年份
-
-		//取得月份
-
-		//取得日期
-
-		//取得星期幾
-
-		//取得小時
-
-		//取得分鐘
-
-		//取得秒數
-
-		//取得毫秒數
-
-		//取得自1970年1月1日0時0分0秒開始計算的總毫秒數
-
-		
-
-		//設定目標時間
-
-
-		
-
+			var myDate = new Date();
+			document.write("myDate="+myDate+"<br>");
+			//取得年份
+			//document.write("myDate="+myDate.getYear()+"<br>");//NO 124 //1900~today
+			document.write("getFullYear="+myDate.getFullYear()+"<br>");//2024
+			//取得月份
+			document.write("getMonth="+(myDate.getMonth()+1)+"<br>");//0~11
+			//取得日期
+			document.write("getDate="+myDate.getDate()+"<br>");//1~31
+			//取得星期幾
+			document.write("getDay="+myDate.getDay()+"<br>");//0~6
+			//取得小時
+			document.write("getHours="+myDate.getHours()+"<br>");//0~23
+			//取得分鐘
+			document.write("getMinutes="+myDate.getMinutes()+"<br>");//0~59
+			//取得秒數
+			document.write("getSeconds="+myDate.getSeconds()+"<br>");//0~59
+			//取得毫秒數
+			document.write("getMilliseconds="+myDate.getMilliseconds()+"<br>");//0~999
+			//取得自1970年1月1日0時0分0秒開始計算的總毫秒數
+			document.write("getTime="+myDate.getTime()+"<hr>");//1970年1月1日0時0分0秒
+	
+			//var length = 1728006600160-1728006216436;
+			//alert(Math.floor(length/1000));
+			
+			//設定目標時間
+			var newDate = new Date(2025,0,1,0,0,0);
+			document.write("newDate="+myDate+"<br>");
+			//取得年份
+			//document.write("newDate="+myDate.getYear()+"<br>");//NO 124 //1900~today
+			document.write("getFullYear="+newDate.getFullYear()+"<br>");//2024
+			//取得月份
+			document.write("getMonth="+(newDate.getMonth()+1)+"<br>");//0~11
+			//取得日期
+			document.write("getDate="+newDate.getDate()+"<br>");//1~31
+			//取得星期幾
+			document.write("getDay="+newDate.getDay()+"<br>");//0~6
+			//取得小時
+			document.write("getHours="+newDate.getHours()+"<br>");//0~23
+			//取得分鐘
+			document.write("getMinutes="+newDate.getMinutes()+"<br>");//0~59
+			//取得秒數
+			document.write("getSeconds="+newDate.getSeconds()+"<br>");//0~59
+			//取得毫秒數
+			document.write("getMilliseconds="+ newDate.getMilliseconds()+"<br>");//0~999
+			//取得自1970年1月1日0時0分0秒開始計算的總毫秒數
+			document.write("getTime="+newDate.getTime()+"<br>");//1970年1月1日0時0分0秒
+			//alert(24*60*60);//86400
+			
+			var now = myDate.getTime();
+			var newYear = newDate.getTime();
+			var diff = newYear - now;
+			document.write("diff="+diff+"<br>");
+			document.write("days="+Math.floor(diff/86400000)+"days<br>");
+			*/
 	</script>
 </head>
 
 <body>
 </body>
+<div id="myDiv">0:0:0</div>
+<script>
+	var myInterval = setInterval(timeoutHandler, 1000);
+	function timeoutHandler() {
+		var myDate = new Date();
+		var hours = myDate.getHours();
+		var minutes = myDate.getMinutes();
+		var seconds = myDate.getSeconds();
+		document.getElementById("myDiv").innerHTML = hours + ":" + minutes + ":" + seconds;
+	}
+
+</script>
 
 </html>

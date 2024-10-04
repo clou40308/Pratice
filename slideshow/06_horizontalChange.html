@@ -7,7 +7,44 @@
 	<script type="text/javascript" src="../jquery.js"></script>
 
 	<script type="text/javascript">
-
+		var index = 1;
+		var photoNum = 6;
+		$(document).ready(init);
+		function init() {
+			$("#next").click(nextHandler);
+			$("#prev").click(prevHandler);
+			$(".photos").append("<img src='images/" + photoNum + ".gif'>");
+			for (var i = 1; i <= photoNum; i++) {
+				$(".photos").append("<img src='images/" + i + ".gif'>");
+			}
+			$(".photos").append("<img src='images/1.gif'>");
+		}
+		function nextHandler() {
+			index++;
+			if (index <= photoNum) {
+				$(".photos").animate({ "left": -(index * 570) + "px" }, 500);
+			} else {
+				$(".photos").animate({ "left": -(index * 570) + "px" }, 500, photoStart);
+				index = 1;
+			}
+		}
+		function photoStart() {
+			$(".photos").css("left", "-570px");
+		}
+		function prevHandler() {
+			index--;
+			if (index > 0) {
+				$(".photos").animate({ "left": -(index * 570) + "px" }, 500);
+			} else {
+				$(".photos").animate({ "left": -(index * 570) + "px" }, 500, photoEnd);
+				index = photoNum;
+			}
+		}
+		function photoEnd() {
+			$(".photos").css("left", -(photoNum * 570) + "px");
+		}
+		//alert(570*6);//3420
+		//alert(570*(6+2));//4560
 	</script>
 	<style>
 		body {
@@ -18,7 +55,7 @@
 			position: relative;
 			width: 4560px;
 			/* height: 225px; */
-			left:-570px;
+			left: -570px;
 		}
 
 		#photosOuter {

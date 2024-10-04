@@ -7,7 +7,18 @@
 	<script type="text/javascript" src="../jquery.js"></script>
 
 	<script type="text/javascript">
-
+		var index = 1;
+		var photoNum = 3;
+		$(document).ready(init);
+		function init() {
+			setInterval(timeoutHandler, 2000);
+		}
+		function timeoutHandler() {
+			index++;
+			//console.log(index);
+			$("#myImg").attr("src", "images/" + index + ".gif")
+			index %= photoNum;
+		}
 	</script>
 	<style>
 		body {

@@ -7,6 +7,45 @@
 	<script type="text/javascript" src="../jquery.js"></script>
 
 	<script type="text/javascript">
+		var index = 1;
+		var photoArray = ["1.gif", "2.gif", "3.gif", "4.gif", "5.gif", "6.gif"];
+		var photoNum = photoArray.length;
+		$(document).ready(init);
+		function init() {
+			$("#next").click(nextHandler);
+			$("#prev").click(prevHandler);
+			$(".photos").append("<img src='images/" + photoArray[photoNum - 1] + "'>");
+			for (var i = 0; i < photoNum; i++) {
+				$(".photos").append("<img src='images/" + photoArray[i] + "'>");
+			}
+			$(".photos").append("<img src='images/" + photoArray[0] + "'>");
+		}
+
+		function nextHandler(e) {
+			index++;
+			if (index <= photoNum) {
+				$(".photos").animate({ "top": -((index) * 225) + "px" }, 300);
+			} else {
+				$(".photos").animate({ "top": -((index) * 225) + "px" }, 300, photosStart);
+				index = 1;
+			}
+		}
+
+		function prevHandler(e) {
+			index--;
+			if (index > 0) {
+				$(".photos").animate({ "top": -((index) * 225) + "px" }, 300);
+			} else {
+				$(".photos").animate({ "top": -((index) * 225) + "px" }, 300, photosEnd);
+				index = photoNum;
+			}
+		}
+		function photosStart() {
+			$(".photos").css({ "top": "-225px" });
+		}
+		function photosEnd() {
+			$(".photos").css({ "top": "-1350px" });
+		}
 
 	</script>
 	<style>
@@ -18,7 +57,7 @@
 			position: relative;
 			width: 570px;
 			/* height: 1800px; */
-			top:-225px;
+			top: -225px;
 		}
 
 		#photosOuter {
@@ -31,7 +70,8 @@
 			width: 100px;
 			height: 100px;
 		}
-		img{
+
+		img {
 			display: block;
 		}
 	</style>

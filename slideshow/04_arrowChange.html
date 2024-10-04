@@ -7,7 +7,36 @@
 	<script type="text/javascript" src="../jquery.js"></script>
 
 	<script type="text/javascript">
+		var index = 1;
+		var photoNum = 4;
+		$(document).ready(init);
+		function init() {
+			$(".next").click(nextHandler);
+			$(".prev").click(prevHandler);
+		}
+		function nextHandler() {
+			/*if(index < photoNum){
+				index++;			
+			}else{
+				index = 1;
+			}*/
 
+			//index < photoNum ? index++ : index = index;
+			index < photoNum ? index++ : index = 1;
+			console.log(index);
+			$("#myImg").attr("src", "images/" + index + ".gif")
+		}
+		function prevHandler() {
+			/*if(index > 1){
+				index--;			
+			}else{
+				index = photoNum;
+			}*/
+			//index > 1 ? index-- : index = index;
+			index > 1 ? index-- : index = photoNum;
+			console.log(index);
+			$("#myImg").attr("src", "images/" + index + ".gif")
+		}
 	</script>
 	<style>
 		body {
@@ -22,8 +51,9 @@
 			width: 100px;
 			height: 225px;
 		}
-		.clear{
-			clear:both;
+
+		.clear {
+			clear: both;
 		}
 	</style>
 

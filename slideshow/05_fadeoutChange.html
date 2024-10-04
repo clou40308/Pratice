@@ -7,7 +7,30 @@
 	<script type="text/javascript" src="../jquery.js"></script>
 
 	<script type="text/javascript">
-
+		var index = 1;
+		var photoNum = 4;
+		$(document).ready(init);
+		function init() {
+			$(".next").click(nextHandler);
+			$(".prev").click(prevHandler);
+			for (var i = 1; i <= photoNum; i++) {
+				$(".photos").append("<img src='images/" + i + ".gif'>");
+			}
+			$(".photos img:gt(0)").fadeOut(0);
+		}
+		function nextHandler() {
+			index < photoNum ? index++ : index = 1;
+			changePhoto();
+		}
+		function prevHandler() {
+			index > 1 ? index-- : index = photoNum;
+			changePhoto();
+		}
+		function changePhoto() {
+			console.log(index - 1);
+			$(".photos img:eq(" + (index - 1) + ")").fadeIn(300);
+			$(".photos img:gt(" + (index - 1) + ")").fadeOut(300);
+		}
 	</script>
 	<style>
 		body {
