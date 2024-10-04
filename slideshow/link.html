@@ -1,0 +1,70 @@
+
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+	<style>
+		#myDiv{
+			font-size: 2em;
+			width: 500px;
+		}
+		#outer{
+			border: 1px solid gray;
+			width: 200px;
+			overflow: hidden;
+		}
+	</style>
+	<script>
+	/*
+		var index = 1;
+		//setTimeout(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+		//window.setTimeout(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+		
+		//setInterval(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+		//window.setInterval(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+		
+		var myInterval = setInterval(timeoutHandler, 1000);//setTimeout(functionName, time in ms)
+		function timeoutHandler(){
+			console.log(index);
+			index++;
+			if(index == 5) clearInterval(myInterval);
+		}
+		*/
+	</script>
+</head>
+
+<body>
+<div id="outer">
+	<div id="myDiv">
+		<a href="aaa">AAA</a>
+		<a href="bbb">BBB</a>
+		<a href="ccc">CCC</a>
+		<a href="aaa">AAA</a>
+		<a href="bbb">BBB</a>
+		<a href="ccc">CCC</a>
+	</div>
+</div>
+
+</body>
+<script>
+var index = 0;
+var myInterval = setInterval(timeoutHandler, 50);
+var myDiv = document.getElementById("myDiv");
+function timeoutHandler(){
+	index--;
+	myDiv.style.marginLeft = index*3+"px"
+	if(index == -73) index = 0;
+}
+myDiv.addEventListener("mouseenter",enterHandler)
+function enterHandler(){
+	clearInterval(myInterval);
+}
+myDiv.addEventListener("mouseleave",leaveHandler)
+function leaveHandler(){
+	myInterval = setInterval(timeoutHandler, 50);
+}
+</script>
+
+</html>
