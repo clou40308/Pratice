@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Tabs</title>
+	<style>
+		#myTabs {
+			width: 520px;
+			margin: 0px auto;
+			border: 1px solid gray;
+			font-size: 1.2em;
+		}
+
+		.tabs {
+			display: flex;
+		}
+
+		.tab {
+			background: #888;
+			color: white;
+			border: 1px solid gray;
+			flex-grow: 1;
+			padding: 20px;
+			text-align: center;
+			cursor: pointer;
+			box-sizing: border-box;
+		}
+
+		.tabContents {
+			background: #888;
+			position: relative;
+			height:300px;
+		}
+
+		.tabContent {
+			border: 1px solid silver;
+			background: #eee;
+			height: 100%;
+			width: 100%;
+			position: absolute;
+			left: 0px;
+			top: 0px;
+			font-size: 1em;
+			text-align: center;
+		}
+
+		.tabZIndex {
+			z-index: 1;
+		}
+
+		.tabContent img {
+			margin-right: 20px;
+			display: inline-block;
+			height: 150px;
+			width: 150px;
+			border: 1px gray solid;
+		}
+
+		.tabContent p {
+			display: inline-block;
+			width: calc(100% - 200px);
+			text-align: left;
+		}
+	</style>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script>
+		//設定正常標題的背景顏色
+		var tabBgNormal = "#999";
+		//設定選擇標題的背景顏色
+		var tabBgSelected = "#333";
+		//設定滑過標題的背景顏色
+		var tabBgHover = "#666";
+		//儲存目前選則的標題索引號碼
+		var tabZIndex = 0;
+
+		$(document).ready(init);
+		function init() {
+
+		}
+
+	</script>
+</head>
+
+<body>
+	
+	<h1>Tabs</h1>
+	<!--Tabs最外圍元件 id="myTabs"-->
+	<div id="myTabs">
+		<!--標籤元件外圍 class="tabs"-->
+		<div class="tabs">
+			<!--標籤元件 class="tab"-->
+			<div class="tab">Mickey Mouse</div>
+			<div class="tab">Minnie Mouse</div>
+			<div class="tab">Goofy Dog</div>
+			<div class="tab">Donald Duck</div>
+		</div>
+		<!--內容元件外圍　class="tabContents"-->
+		<div class="tabContents">
+			<!--內容元件　class="tabContent"-->
+			<div class="tabContent">
+				<img src="../images/ch03_mickey.jpg" />
+				<p>
+					Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had no gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to play piano in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
+				</p>
+			</div>
+			<div class="tabContent">
+				<img src="../images/ch03_minnie.jpg" />
+				<p>
+					Minnie was designed in the fashion of a fashion girl and created to be the lover of Mickey Mouse. Although she always appears in red, she was originally designed to have a blue and green outfit. In the 1929 cartoon The Karnival Kid it was also revealed that she wears black stockings.
+				</p>				
+			</div>
+			<div class="tabContent">
+				<img src="../images/ch03_goofy.jpg" />
+				<p>
+					Goofy made his first appearance in the 1932 classic, Mickey’s Revue. He’s had some name changes over the years, being called Dippy Dawg and Dippy the Goof before becoming known simply as Goofy, one of Mickey’s hilarious pals that we have all come to know and love. Garsh!
+				</p>
+			</div>
+			<div class="tabContent">
+				<img src="../images/ch03_donald.jpg" />
+				<p>
+					Donald was first seen in The Wise Little Hen back in 1934. He was a big hit with audiences and his popularity continued to increase until he eventually starred in 128 cartoons and appeared in over 150 theatrical films! That’s more than any other Disney character, even Mickey!
+				</p>				
+			</div>
+		</div>
+	</div>
+</body>
+
+</html>

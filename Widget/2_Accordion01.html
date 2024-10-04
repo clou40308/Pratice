@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Accordion 02</title>
+	<style>
+		#myAccordion {
+			width: 500px;
+			margin: auto;
+		}
+
+		#myAccordion>* {
+			border: 1px solid gray;
+			margin: 0px;
+		}
+
+		.accordionTitle {
+			cursor: pointer;
+			font-size: 2em;
+			text-align: center;
+			color: white;
+		}
+
+		.accordionContent {
+			background-color: #eee;
+			overflow: hidden;
+			height: 0px;
+			transition: height 0.4s ease-out;
+		}
+
+		.contentHeight {
+			height: 300px;
+			/*height: auto;*/
+		}
+
+		.accordionContent img {
+			margin-right: 20px;
+			display: inline-block;
+			height: 150px;
+			width: 150px;
+			border: 1px gray solid;
+		}
+
+		.accordionContent p {
+			font-size: 1.2em;
+			display: inline-block;
+			width: calc(100% - 200px);
+		}
+		.showHide{
+			height:0px;
+		}
+	</style>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script>
+		//手風琴標題元件正常背景顏色
+		var accordionBgNormal = "#999";
+		//手風琴標題元件選取背景顏色
+		var accordionBgSelected = "#333";
+		//手風琴標題元件滑鼠滑過背景顏色
+		var accordionBgHover = "#666";
+		//儲存目前選取的索引號碼
+		var accordionIndex = 0;
+
+		$(document).ready(init);
+		function init() {
+		}
+
+	</script>
+</head>
+
+<body>	
+	<h1>Accordion 01</h1>
+	<!--Accordion最外圍元件 id="myAccordion"-->
+	<div id="myAccordion">
+		<!--標題元件　class="accordionTitle"-->
+		<h3 class="accordionTitle">Mickey Mouse</h3>
+		<!--內容元件　class="accordionContent"-->
+		<div class="accordionContent">
+			<img src="../images/ch03_mickey.jpg" />
+			<p>
+				Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had no gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to play piano in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
+			</p>
+		</div>
+
+		<h3 class="accordionTitle">Minnie Mouse</h3>
+		<div class="accordionContent">
+			<img src="../images/ch03_minnie.jpg" />
+			<p>
+				Minnie was designed in the fashion of a fashion girl and created to be the lover of Mickey Mouse. Although she always appears in red, she was originally designed to have a blue and green outfit. In the 1929 cartoon The Karnival Kid it was also revealed that she wears black stockings.
+			</p>
+		</div>
+
+		<h3 class="accordionTitle">Goofy Dog</h3>
+		<div class="accordionContent">
+			<img src="../images/ch03_goofy.jpg" />
+			<p>
+				Goofy made his first appearance in the 1932 classic, Mickey’s Revue. He’s had some name changes over the years, being called Dippy Dawg and Dippy the Goof before becoming known simply as Goofy, one of Mickey’s hilarious pals that we have all come to know and love. Garsh!
+			</p>
+		</div>
+
+		<h3 class="accordionTitle">Donald Duck</h3>
+		<div class="accordionContent">
+			<img src="../images/ch03_donald.jpg" />
+			<p>
+				Donald was first seen in The Wise Little Hen back in 1934. He was a big hit with audiences and his popularity continued to increase until he eventually starred in 128 cartoons and appeared in over 150 theatrical films! That’s more than any other Disney character, even Mickey!
+			</p>
+		</div>
+
+	</div>
+</body>
+
+</html>

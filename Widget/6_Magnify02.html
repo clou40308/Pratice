@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Magnify two divs</title>
+	<style type="text/css">
+		html,
+		body {
+			color: white;
+			background-color: silver;
+			margin: 50px;
+			padding: 0px;
+		}
+
+		#magnifyOuterDiv {
+			position: relative;
+		}
+
+		#magnifyDiv {
+			width: 200px;
+			height: 200px;
+			background-image: url(../images/photo.jpg);
+			background-size: cover;
+			cursor: zoom-in;
+		}
+
+		#enlargeDiv {
+			position: absolute;
+			left: 250px;
+			top: 0px;
+			width: 300px;
+			height: 300px;
+			/* width: 200px;
+			height: 200px; */
+			background-image: url(../images/photo.jpg);
+			display: none;
+			border:1px solid gray;
+		}
+	</style>
+
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script>
+		$(document).ready(init);
+		function init() {
+
+		}
+	</script>
+</head>
+
+<body>
+	<!--放大視窗外框 id="magnifyOuterDiv"-->
+	<div id="magnifyOuterDiv">
+		<!--放大視窗 id="magnifyDiv"-->
+		<div id="magnifyDiv"></div>
+		<!--實際放大視窗 id="enlargeDiv"-->
+		<div id="enlargeDiv"></div>
+	</div>
+
+</body>
+
+</html>

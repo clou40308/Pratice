@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Timer</title>
+	<style>
+		#myDiv {
+			font-size: 2em;
+			width: 330px;
+		}
+	</style>
+	<script>
+		/*
+			var index = 1;
+			//setTimeout(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+			//window.setTimeout(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+			
+			//setInterval(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+			//window.setInterval(timeoutHandler, 2000);//setTimeout(functionName, time in ms)
+			
+			var myInterval = setInterval(timeoutHandler, 1000);//setTimeout(functionName, time in ms)
+			function timeoutHandler(){
+				console.log(index);
+				index++;
+				if(index == 5) clearInterval(myInterval);
+			}
+			*/
+	</script>
+</head>
+
+<body>
+	<div id="myDiv"></div>
+</body>
+<script>
+	//document.write("a="+a.charAt(2)+"<br>");//c
+	//document.write("a="+a.slice(2,5)+"<br>");//cde
+	//slice(startNumber:included, endNumber:not included)
+
+	var index = 0;
+	var str = "超慢跑是一種低強度有氧運動，源自日本是一種輕鬆、自然的跑步方式，速度僅略快於行走，大約每小時4到6公里。這種跑步方式著重於身體舒適感，並且強調跑步時應能輕鬆地呼吸和微笑，事實上超慢跑的理念是，打破傳統跑步的高強度要求，鼓勵人們以輕鬆的心態進行運動。";
+	//document.getElementById("myDiv").innerHTML = str;
+	var myInterval = setInterval(timeoutHandler, 100);//setTimeout(functionName, time in ms)
+	function timeoutHandler() {
+		//document.getElementById("myDiv").innerHTML += str.charAt(index);
+		document.getElementById("myDiv").innerHTML = str.slice(index, index + 10);
+		index++;
+		if (index > str.length - 10) clearInterval(myInterval);
+	}
+</script>
+
+</html>

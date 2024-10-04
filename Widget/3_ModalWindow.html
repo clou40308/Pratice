@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Modal Window</title>
+	<style>
+		body {
+			background: url(../images/bread.jpg);
+		}
+
+		#modalWindow {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.6);
+			display: flex;
+			align-items:center;
+			justify-content:center;
+		}
+
+		.messageWindow {
+			position: relative;
+			padding: 20px;
+			width: 400px;
+			background: silver;
+			border: 5px solid gray;
+		}
+
+		.closeBtn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 16px;
+			height: 16px;
+			text-align: center;
+			line-height: 16px;
+			padding: 5px;
+			background-color: rgba(240, 240, 240, 1);
+			border-radius: 50%;
+			cursor: pointer;
+		}
+
+		.messageWindow img {
+			width: 150px;
+			margin: 10px;
+			float: left;
+		}
+		.messageWindow p {
+			text-align: justify;
+		}
+
+		#showBtn {
+			position: fixed;
+			top: 50px;
+			right: 50px;
+		}
+	</style>
+
+<script type="text/javascript" src="../jquery.js"></script>
+<script>
+		$(document).ready(init);
+		function init() {
+
+		}
+	</script>
+</head>
+
+<body>
+	
+	<!--遮蔽元件外圍元件 id="modalWindow"-->
+	<div id="modalWindow">
+		<!--訊息對話框元件 class="messageWindow"-->
+		<div class="messageWindow">
+			<!--關閉按鈕元件 class="closeBtn"-->
+			<div class="closeBtn">X</div>
+			<!--以下為呈現元件-->
+			<img src="../images/ch03_mickey.jpg" />
+			<p>
+				Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had no gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to play piano in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
+			</p>
+
+		</div>
+	</div>
+	<!--遮蔽視窗重現按鈕元件 id="showBtn"-->
+	<button id="showBtn">Show</button>
+</body>
+
+</html>

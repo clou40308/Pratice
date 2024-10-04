@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Popup Window</title>
+	<style>
+		body {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			user-select: none;
+			background: url(../images/building.jpg);
+		}
+
+		#modalWindow {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.3);
+			align-items: center;
+			justify-content: center;
+			/* display: flex; */
+			display: none;
+		}
+
+		.messageWindow {
+			position: relative;
+			width: 400px;
+			height: 300px;
+			border: 1px solid gray;
+			background-color: silver;
+			font-size: 1.2em;
+			overflow: auto;
+			color: white;
+		}
+
+		.closeBtn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 16px;
+			height: 16px;
+			font-size: 16px;
+			text-align: center;
+			line-height: 16px;
+			padding: 5px;
+			background-color: rgba(240, 240, 240, 1);
+			cursor: pointer;
+			color: black;
+			border-radius: 50%;
+		}
+
+		#info {
+			background: lightgray;
+			width: 200px;
+			height: 50px;
+			font-size: 2em;
+			position: fixed;
+			right: 50px;
+			top: 50px;
+		}
+
+		.expendDiv {
+			height: 500px;
+			background-color: rgba(200, 200, 200, 0.2);
+			border: 1px solid black;
+			font-size: 4em;
+		}
+	</style>
+
+<script type="text/javascript" src="../jquery.js"></script>
+<script>
+		//儲存　開始時間, 結束時間, 資訊元件
+		var startTime, endTime, info;
+
+		$(document).ready(init);
+		function init() {
+
+		}
+	</script>
+
+</head>
+
+<body>
+	<!--遮蔽元件外圍元件 id="modalWindow"-->
+	<div id="modalWindow">
+		<!--訊息對話框元件 class="messageWindow"-->
+		<div class="messageWindow">
+			<!--關閉按鈕元件 class="closeBtn"-->
+			<div class="closeBtn">X</div>
+			<!--以下為呈現元件 class="smallPhoto"-->
+			<img src="../images/gallery1.jpg" class="smallPhoto" /><br>
+			Click the close button or press the ESC key<br>
+			to close the window!<br>
+		</div>
+	</div>
+	<!--資訊讀取元件 id="info"-->
+	<div id="info">Time: </div>
+	<!--為了能捲動window所設定的元件 class="expendDiv"-->	
+	<div class="expendDiv">Expend div!</div>
+	<div class="expendDiv">Expend div!</div>
+	<div class="expendDiv">Expend div!</div>
+	<div class="expendDiv">Expend div!</div>
+</body>
+
+</html>

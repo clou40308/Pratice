@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Vertical Change</title>
+	<script type="text/javascript" src="../jquery.js"></script>
+
+	<script type="text/javascript">
+
+	</script>
+	<style>
+		body {
+			background: pink;
+		}
+
+		.photos {
+			position: relative;
+			width: 570px;
+			/* height: 1800px; */
+			top:-225px;
+		}
+
+		#photosOuter {
+			width: 570px;
+			height: 225px;
+			overflow: hidden;
+		}
+
+		button {
+			width: 100px;
+			height: 100px;
+		}
+		img{
+			display: block;
+		}
+	</style>
+
+</head>
+
+<body>
+
+	<div id="photosOuter">
+		<div class="photos"></div>
+	</div>
+	<br>
+	<button id="prev">Prev</button>
+	<button id="next">next</button>
+</body>
+
+</html>
