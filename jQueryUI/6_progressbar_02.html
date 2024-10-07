@@ -1,52 +1,60 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>jQuery UI Example Page</title>
 	<link rel="stylesheet" href="../themes/ui-lightness/jquery-ui.css" />
 	<script type="text/javascript" src="../jquery.js"></script>
 	<script type="text/javascript" src="../jquery-ui.js"></script>
-	
-	<script type="text/javascript">
-	$(document).ready(init);
-	function init(){
-		$("#myProgressbar").progressbar({
-			value: 50,
-			max: 100,
-			
-			create:createHandler,
-			change:changeHandler,
-			complete:completeHandler
-		});
-		//create change change change change change complete
-		$("button:eq(0)").click(valueHandler);
-	}
-	function createHandler(){
-		$("#info").html("create");
-	}
-	function changeHandler(){
-		$("#info").html("change");
-	}
-	function completeHandler(){
-		$("#info").html("complete");
-	}
-	function valueHandler(){
 
-	}
+	<script type="text/javascript">
+		$(document).ready(init);
+		function init() {
+			$("#myProgressbar").progressbar({
+				value: 0,
+				max: 100,
+
+				create: createHandler,
+				change: changeHandler,
+				complete: completeHandler
+			});
+			//create change change change change change complete
+			//$("button").click(valueHandler);
+		}
+		function createHandler() {
+			$("#info").html("create");
+		}
+		function changeHandler() {
+			$("#info").html("change");
+		}
+		function completeHandler() {
+			$("#info").html("complete");
+		}
+		var myInterval = setInterval(valueHandler, 100);
+
+		function valueHandler() {
+			var myValue = $("#myProgressbar").progressbar("value");
+			//alert(myValue)
+			$("#myProgressbar").progressbar("value", myValue + 1);
+		}
 	</script>
 	<style>
-		.ui-progressbar{
-			margin:auto;
-			width:50%;
-			position:relative;
+		.ui-progressbar {
+			margin: auto;
+			width: 50%;
+			position: relative;
 		}
 	</style>
 </head>
-<body>
-<h1>Progressbar Events</h1>
-<button>value</button><br/>
 
-<div id="info">Info</div><br />
-<div id="myProgressbar"></div>
+<body>
+	<h1>Progressbar Events</h1>
+	<button>value</button><br />
+
+	<div id="info">Info</div><br />
+	<div id="myProgressbar"></div>
 </body>
+
 </html>

@@ -1,5 +1,7 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>jQuery UI Example Page</title>
@@ -8,26 +10,48 @@
 	<script type="text/javascript" src="../jquery-ui.js"></script>
 
 	<script type="text/javascript">
-	$(document).ready(init);
-	function init(){
-		$("#myDatepicker").datepicker({
-			
-		});
-	}
+		$(document).ready(init);
+		function init() {
+			$("#myDatepicker").datepicker({
+				dateFormat: "yy/mm/dd",
+				showMonthAfterYear: true,
+				//numberOfMonths: 3,
+				//numberOfMonths: [2, 3],
+				//showCurrentAtPos: 3,
+				//stepMonths: 6,
+
+				showAnim: "drop",
+				duration: 1000,
+				showOptions: { direction: "up" },//left right up down
+
+				onClose: closeHandler
+			});
+		}
+		function closeHandler(date) {
+			//alert(date);//2024/10/02
+			//alert(new Date(date));//Thu Oct 03 2024 00:00:00 GMT+0800 (台北標準時間)
+			alert(new Date(date).getDay());//
+		}
+		//https://api.jqueryui.com/category/effects/
 	</script>
 	<style>
-	.ui-datepicker {  
-		width: 400px;  
-		height:350px;  
-		margin: 5px auto 0;  
-		font: 16pt Arial, sans-serif;  
-		box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);  
-	}  
+		.ui-datepicker {
+
+			margin: 5px auto 0;
+			font: 16pt Arial, sans-serif;
+			box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+		}
 	</style>
 </head>
+
 <body>
 
-<h1>Datepicker</h1>
-<p>Date: <input type="text" id="myDatepicker"></p>
+	<h1>Datepicker</h1>
+
+	<input type="text" id="myDatepicker">
+
+
+	<!-- <div id="myDatepicker"></div> -->
 </body>
+
 </html>

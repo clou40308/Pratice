@@ -1,27 +1,52 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>jQuery UI Example Page</title>
 	<link rel="stylesheet" href="../themes/ui-lightness/jquery-ui.css" />
 	<script type="text/javascript" src="../jquery.js"></script>
 	<script type="text/javascript" src="../jquery-ui.js"></script>
-	
+
 	<script type="text/javascript">
-	$(document).ready(init);
-	function init(){
-		$("#myDialog").dialog({
-		});
-	}
+		$(document).ready(init);
+		function init() {
+			$("#myDialog").dialog({
+				modal: false,
+				autoOpen: true,
+				show: true,
+				hide: true,
+				//show:{effect:"explode",duration:500},
+				//hide:{effect:"explode",duration:500},
+				position: { my: "center top+20", at: "center bottom", of: "h1" }
+			});
+			//https://api.jqueryui.com/category/effects/
+			$("h1").click(h1Handler);
+			$("h2").click(h2Handler);
+		}
+		function h1Handler() {
+			$("#myDialog").dialog("open");
+		}
+		function h2Handler() {
+			$("#myDialog").dialog("close");
+		}
 	</script>
 	<style>
+		h1 {
+			background: pink;
+		}
 	</style>
 </head>
+
 <body>
 
-<h1>Dialog</h1>
-<div id="myDialog" title="Basic dialog">
-  <p>jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the jQuery JavaScript Library. jQuery UI is the perfect choice.</p>
-</div>
+	<h1>Info</h1>
+	<h2>close</h2>
+	<div id="myDialog" title="Basic dialog">
+		<p>jQuery UI is a curated set of user interface interactions, effects, widgets, and themes built on top of the
+			jQuery JavaScript Library. jQuery UI is the perfect choice.</p>
+	</div>
 </body>
+
 </html>

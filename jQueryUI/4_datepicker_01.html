@@ -1,20 +1,65 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<title>jQuery UI Example Page</title>
 	<link rel="stylesheet" href="../themes/ui-lightness/jquery-ui.css" />
 	<script type="text/javascript" src="../jquery.js"></script>
 	<script type="text/javascript" src="../jquery-ui.js"></script>
-	
+
 	<script type="text/javascript">
-	$(document).ready(init);
-	function init(){
-		
-	}
+		$(document).ready(init);
+		function init() {
+			$("#myDatepicker").datepicker({
+				dateFormat: "yy/mm/dd",
+				//dateFormat: "yy/mm/dd",
+				//dateFormat: "yy年mm月dd日",
+
+				firstDay: 0,
+				isRTL: false,
+
+				appendText: " (年/月/日)",
+				showWeek: false,
+				weekHeader: "No.",
+
+				showOn: "both",//focus button button
+				buttonText: "Show",
+				buttonImage: "../images/calendar-blue.png",
+				buttonImageOnly: true,
+
+				//minDate: "-1y+2m-2w+3d",//int d w m y
+				//maxDate: "+1y-2m",
+				minDate: new Date(2022, 2, 6),
+				maxDate: new Date(2028, 4, 9),
+
+				showMonthAfterYear: true,
+				changeMonth: true,
+				changeYear: true,
+				//yearRange: "2023:2025"
+
+				showOtherMonths: true,
+				selectOtherMonths: true,
+			});
+		}
+		/*
+		d - day of month (no leading zero)
+		dd - day of month (two digit)
+		o - day of the year (no leading zeros)
+		oo - day of the year (three digit)
+		D - day name short
+		DD - day name long
+		m - month of year (no leading zero)
+		mm - month of year (two digit)
+		M - month name short
+		MM - month name long
+		y - year (two digit)
+		yy - year (four digit)
+		*/
 	</script>
 	<style>
-	/*
+		/*
 	CSS結構：
 		ui-datepicker: datepicker的外框物件
 			ui-datepicker-header: datepicker得標頭外框
@@ -30,10 +75,24 @@
 			ui-datepicker-buttonpane: 下方按鈕區的外框
 				ui-datepicker-current:下方跳躍到今天的按鈕
 	*/
+
+		.ui-datepicker-trigger {
+			position: relative;
+			top: 10px;
+			left: 3px
+		}
 	</style>
 </head>
+
 <body>
 
-<h1>Datepicker</h1>
+	<h1>Datepicker</h1>
+	<input type="text" id="myDatepicker">
+
+	<!-- 
+<div id="myDatepicker"></div>
+
+<input type="date"> -->
 </body>
+
 </html>
