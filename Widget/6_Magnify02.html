@@ -31,11 +31,10 @@
 			top: 0px;
 			width: 300px;
 			height: 300px;
-			/* width: 200px;
-			height: 200px; */
 			background-image: url(../images/photo.jpg);
+			display: block;
 			display: none;
-			border:1px solid gray;
+			border: 1px solid gray;
 		}
 	</style>
 
@@ -43,7 +42,27 @@
 	<script>
 		$(document).ready(init);
 		function init() {
+			$("#magnifyDiv").mousemove(moveHandler);
+			$("#magnifyDiv").hover(hoverHandler);
+		}
+		function moveHandler(e) {
+			//console.log(e.offsetX);
+			var divWidth = $("#magnifyDiv").width();
+			var enlargeWidth = $("#enlargeDiv").width();
+			var photoWidth = 600;
+			var moveRangeX = photoWidth - enlargeWidth;
+			var scaleX = moveRangeX / divWidth;
 
+			var divHeight = $("#magnifyDiv").height();
+			var enlargeHeight = $("#enlargeDiv").height();
+			var photoHeight = 600;
+			var moveRangeY = photoHeight - enlargeHeight;
+			var scaleY = moveRangeY / divHeight;
+			console.log(scaleY);
+			$("#enlargeDiv").css("backgroundPosition", -e.offsetX * scaleX + "px " + -e.offsetY * scaleY + "px");
+		}
+		function hoverHandler() {
+			$("#enlargeDiv").fadeToggle(200);
 		}
 	</script>
 </head>

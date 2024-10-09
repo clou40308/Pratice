@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pull Down Menu</title>
+    <style type="text/css">
+        .fixed {
+            position: fixed;
+            width: 100%;
+            top: 0px;
+            left: 0px;
+        }
+
+        .navigation {
+            margin: 0 auto;
+            width: 480px;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            display: flex;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .menu {
+            width: 120px;
+            flex-grow: 1;
+        }
+
+        .menuList {
+            border: 1px solid gray;
+            background: #eee;
+        }
+
+        .menuItem {
+            display: none;
+            border: 1px solid gray;
+            border-top: none;
+            background: #ccc;
+            width: 480px;
+        }
+
+        .menu:hover {
+            z-index: 1;
+        }
+
+        /* 滑鼠滑入顯示子選單 */
+        .menu:hover .menuItem {
+            display: block;
+        }
+
+        .menu:nth-child(2) .menuItem {
+            margin-left: -120px;
+        }
+
+        .menu:nth-child(3) .menuItem {
+            margin-left: -240px;
+        }
+
+        .menu:nth-child(4) .menuItem {
+            margin-left: -360px;
+        }
+
+        .menuList:hover {
+            background: #aaa;
+        }
+
+        .menuList:active {
+            background: #888;
+        }
+
+        .menuItem:hover {
+            background: #aaa;
+        }
+
+        .menuItem:active {
+            background: #888;
+        }
+    </style>
+
+    <link rel="stylesheet" href="../themes/ui-lightness/jquery-ui.css" />
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script type="text/javascript" src="../jquery-ui.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(init);
+        function init() {
+            $(".menuItem").click(clickHandler);
+        }
+        function clickHandler() {
+            $("#info").text($(this).text());
+            if (Boolean(window[$(this).text()])) window[$(this).text()]();
+        }
+        function Apple() {
+            alert("Apple!!!");
+        }
+        function Kiwi() {
+            alert("Kiwi!!!");
+        }
+        /*
+        var a = 3;
+        alert(a);
+        alert(window.a);
+        alert(window["a"]);
+        
+        function run(){
+            alert("Hello!");
+        }
+        run();
+        window["run"]();
+        */
+
+    </script>
+</head>
+
+<body>
+    <div id="info">info</div>
+    <br><br>
+    <div class="fixed">
+        <div class="navigation">
+            <div class="menu">
+                <div class="menuList">Vegetable</div>
+                <div class="menuItem">Carrot</div>
+                <div class="menuItem">Onion</div>
+                <div class="menuItem">Mushroom</div>
+                <div class="menuItem">Tomato</div>
+            </div>
+            <div class="menu">
+                <div class="menuList">Fruit</div>
+                <div class="menuItem">Apple</div>
+                <div class="menuItem">Kiwi</div>
+                <div class="menuItem">Orange</div>
+            </div>
+            <div class="menu">
+                <div class="menuList">Seafood</div>
+                <div class="menuItem">Cod</div>
+                <div class="menuItem">Lobster</div>
+                <div class="menuItem">Tuna</div>
+            </div>
+            <div class="menu">
+                <div class="menuList">Meat</div>
+                <div class="menuItem">Beef</div>
+                <div class="menuItem">Chicken</div>
+                <div class="menuItem">Lamb</div>
+                <div class="menuItem">Pork</div>
+            </div>
+        </div>
+    </div>
+    <hr>
+</body>
+
+</html>

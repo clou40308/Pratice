@@ -18,6 +18,7 @@
 			height: 200px;
 			background-image: url(../images/photo.jpg);
 			background-size: cover;
+			/*background-size: auto;*/
 			cursor: zoom-in;
 		}
 
@@ -29,7 +30,26 @@
 	<script>
 		$(document).ready(init);
 		function init() {
+			$("#magnifyDiv").mousemove(moveHandler).mouseleave(leaveHandler);
+		}
+		function moveHandler(e) {
+			//console.log(e.offsetX);
+			var divWidth = $("#magnifyDiv").width();
+			var photoWidth = 600;
+			var moveRangeX = photoWidth - divWidth;
+			var scaleX = moveRangeX / divWidth;
 
+			var divHeight = $("#magnifyDiv").height();
+			var photoHeight = 600;
+			var moveRangeY = photoHeight - divHeight;
+			var scaleY = moveRangeY / divHeight;
+			console.log(-e.offsetX * scaleX);
+
+			$("#magnifyDiv").css("backgroundPosition", -e.offsetX * scaleX + "px " + -e.offsetY * scaleY + "px");
+			//background-position: -50px -50px;
+		}
+		function leaveHandler() {
+			$("#magnifyDiv").css("backgroundPosition", "0px 0px");
 		}
 	</script>
 </head>

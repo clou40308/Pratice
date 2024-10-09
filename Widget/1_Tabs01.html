@@ -30,7 +30,7 @@
 		.tabContents {
 			background: #888;
 			position: relative;
-			height:300px;
+			height: 300px;
 		}
 
 		.tabContent {
@@ -76,14 +76,39 @@
 
 		$(document).ready(init);
 		function init() {
-
+			$(".tab").click(tabClickHandler);
+			//$(".tab").mouseenter(tabClickHandler);
+			$(".tab").mouseenter(tabMouseenterHandler);
+			$(".tab").mouseleave(tabMouseleaveHandler);
+			$(".tab").css("backgroundColor", tabBgNormal);
+			$(".tab").each(function (index) {
+				$(this).attr("tabZIndex", index);
+			})
+			$(".tab:eq(" + tabZIndex + ")").css("backgroundColor", tabBgSelected);
+			$(".tabContent:eq(" + tabZIndex + ")").css("zIndex", 1);
 		}
-
+		function tabClickHandler() {
+			tabZIndex = $(this).attr("tabZIndex");
+			$(".tabContent").css("zIndex", 0);
+			$(".tabContent:eq(" + tabZIndex + ")").css("zIndex", 1);
+			$(".tab").css("backgroundColor", tabBgNormal);
+			$(this).css("backgroundColor", tabBgSelected);
+		}
+		function tabMouseenterHandler() {
+			if ($(this).attr("tabZIndex") != tabZIndex) {
+				$(this).css("backgroundColor", tabBgHover);
+			}
+		}
+		function tabMouseleaveHandler() {
+			if ($(this).attr("tabZIndex") != tabZIndex) {
+				$(this).css("backgroundColor", tabBgNormal);
+			}
+		}
 	</script>
 </head>
 
 <body>
-	
+
 	<h1>Tabs</h1>
 	<!--Tabs最外圍元件 id="myTabs"-->
 	<div id="myTabs">
@@ -101,26 +126,34 @@
 			<div class="tabContent">
 				<img src="../images/ch03_mickey.jpg" />
 				<p>
-					Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had no gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to play piano in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
+					Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had
+					no gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to
+					play piano in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
 				</p>
 			</div>
 			<div class="tabContent">
 				<img src="../images/ch03_minnie.jpg" />
 				<p>
-					Minnie was designed in the fashion of a fashion girl and created to be the lover of Mickey Mouse. Although she always appears in red, she was originally designed to have a blue and green outfit. In the 1929 cartoon The Karnival Kid it was also revealed that she wears black stockings.
-				</p>				
+					Minnie was designed in the fashion of a fashion girl and created to be the lover of Mickey Mouse.
+					Although she always appears in red, she was originally designed to have a blue and green outfit. In
+					the 1929 cartoon The Karnival Kid it was also revealed that she wears black stockings.
+				</p>
 			</div>
 			<div class="tabContent">
 				<img src="../images/ch03_goofy.jpg" />
 				<p>
-					Goofy made his first appearance in the 1932 classic, Mickey’s Revue. He’s had some name changes over the years, being called Dippy Dawg and Dippy the Goof before becoming known simply as Goofy, one of Mickey’s hilarious pals that we have all come to know and love. Garsh!
+					Goofy made his first appearance in the 1932 classic, Mickey’s Revue. He’s had some name changes over
+					the years, being called Dippy Dawg and Dippy the Goof before becoming known simply as Goofy, one of
+					Mickey’s hilarious pals that we have all come to know and love. Garsh!
 				</p>
 			</div>
 			<div class="tabContent">
 				<img src="../images/ch03_donald.jpg" />
 				<p>
-					Donald was first seen in The Wise Little Hen back in 1934. He was a big hit with audiences and his popularity continued to increase until he eventually starred in 128 cartoons and appeared in over 150 theatrical films! That’s more than any other Disney character, even Mickey!
-				</p>				
+					Donald was first seen in The Wise Little Hen back in 1934. He was a big hit with audiences and his
+					popularity continued to increase until he eventually starred in 128 cartoons and appeared in over
+					150 theatrical films! That’s more than any other Disney character, even Mickey!
+				</p>
 			</div>
 		</div>
 	</div>

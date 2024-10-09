@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Pull Down Menu</title>
+    <style type="text/css">
+        .navigation {
+            margin: 0 auto;
+            width: 480px;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.2em;
+            display: flex;
+            cursor: pointer;
+            text-align: center;
+            flex-direction: row;
+            /*row column*/
+        }
+
+        .menu {
+            width: 120px;
+        }
+
+        .menuList {
+            border: 1px solid gray;
+            background: lightgreen;
+        }
+
+        .menuItem {
+            display: none;
+            border: 1px solid gray;
+            border-top: none;
+            background: lightblue;
+        }
+
+        /* 滑鼠滑入顯示子選單 */
+        .menu:hover .menuItem {
+            display: block;
+        }
+
+        .menuList:hover {
+            background: green;
+        }
+
+        .menuList:active {
+            background: #888;
+        }
+
+        .menuItem:hover {
+            background: cyan;
+        }
+
+        .menuItem:active {
+            background: #888;
+        }
+    </style>
+
+    <script type="text/javascript">
+        //$(document).ready(init);
+        function init() {
+            //$(".menuItem").click(clickHandler);
+        }
+        function clickHandler() {
+            $("#info").text($(this).text());
+        }
+    </script>
+</head>
+
+<body>
+    <div id="info">info</div>
+    <br><br>
+
+    <div class="navigation">
+        <div class="menu">
+            <div class="menuList">Vegetable</div>
+            <div class="menuItem">Onion</div>
+            <div class="menuItem">Mushroom</div>
+            <div class="menuItem" onclick="window.location='1_Tabs01.html';">Tomato</div>
+        </div>
+        <div class="menu">
+            <div class="menuList">Fruit</div>
+            <div class="menuItem"><a href="http://www.apple.com" target="_blank">Apple</a></div>
+            <div class="menuItem">Kiwi</div>
+            <div class="menuItem" onclick="window.location='http://www.google.com';">Orange</div>
+        </div>
+        <div class="menu">
+            <div class="menuList">Seafood</div>
+            <div class="menuItem">Cod</div>
+            <div class="menuItem">Lobster</div>
+            <div class="menuItem">Tuna</div>
+            <div class="menuItem" onclick="window.open('http://www.apple.com');">Crab</div>
+        </div>
+        <div class="menu">
+            <div class="menuList">Meat</div>
+            <div class="menuItem">Beef</div>
+            <div class="menuItem">Chicken</div>
+            <div class="menuItem">Lamb</div>
+            <div class="menuItem" onclick="info.innerHTML=this.innerHTML;document.body.style.backgroundColor='pink';">
+                Pork</div>
+        </div>
+    </div>
+    <hr>
+</body>
+
+</html>

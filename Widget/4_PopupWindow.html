@@ -6,8 +6,6 @@
 	<title>Popup Window</title>
 	<style>
 		body {
-			-webkit-user-select: none;
-			-moz-user-select: none;
 			user-select: none;
 			background: url(../images/building.jpg);
 		}
@@ -70,14 +68,38 @@
 		}
 	</style>
 
-<script type="text/javascript" src="../jquery.js"></script>
-<script>
+	<script type="text/javascript" src="../jquery.js"></script>
+	<script>
 		//儲存　開始時間, 結束時間, 資訊元件
 		var startTime, endTime, info;
 
 		$(document).ready(init);
 		function init() {
-
+			$(".closeBtn").click(closeHandler);
+			startTime = endTime = new Date().getTime();
+		}
+		function closeHandler() {
+			$("#modalWindow").css("display", "none");
+			$("body").css("overflow", "visible");
+			startTime = endTime;
+		}
+		var modalWindowInterval = setInterval(clock, 100);
+		function clock() {
+			var myDate = new Date();
+			endTime = myDate.getTime();
+			var timeDifferent = Math.round((endTime - startTime) / 100) / 10;
+			$("#info").html(timeDifferent);
+			if (timeDifferent >= 5) {
+				$("#modalWindow").css("display", "flex");
+				$("body").css("overflow", "hidden");
+			}
+		}
+		$(document).mousemove(modalHandler);
+		$(document).keydown(modalHandler);
+		$(window).scroll(modalHandler);
+		function modalHandler(e) {
+			startTime = endTime;
+			if (e.which == 27) closeHandler();
 		}
 	</script>
 
@@ -98,7 +120,7 @@
 	</div>
 	<!--資訊讀取元件 id="info"-->
 	<div id="info">Time: </div>
-	<!--為了能捲動window所設定的元件 class="expendDiv"-->	
+	<!--為了能捲動window所設定的元件 class="expendDiv"-->
 	<div class="expendDiv">Expend div!</div>
 	<div class="expendDiv">Expend div!</div>
 	<div class="expendDiv">Expend div!</div>

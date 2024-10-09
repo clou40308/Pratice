@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>Accordion 02</title>
+	<title>Accordion</title>
 	<style>
 		#myAccordion {
 			width: 500px;
@@ -47,12 +47,16 @@
 			display: inline-block;
 			width: calc(100% - 200px);
 		}
-		.showHide{
-			height:0px;
+
+		.showHide {
+			height: 0px;
 		}
 	</style>
 	<script type="text/javascript" src="../jquery.js"></script>
 	<script>
+		/*for (var i = 0; i< 10; i+=1){
+			if(i == 3) alert("Yes "+ i/10)
+		}*/
 		//手風琴標題元件正常背景顏色
 		var accordionBgNormal = "#999";
 		//手風琴標題元件選取背景顏色
@@ -64,13 +68,47 @@
 
 		$(document).ready(init);
 		function init() {
+			$(".accordionTitle").click(accordionTitleClickHandler);
+			$(".accordionTitle").mouseenter(accordionTitleMouseenterHandler);
+			$(".accordionTitle").mouseleave(accordionTitleMouseleaveHandler);
+			$(".accordionTitle").css("backgroundColor", accordionBgNormal);
+			$(".accordionTitle").each(function (index) {
+				$(this).attr("accordionIndex", index);
+			})
+			$(".accordionTitle:eq(" + accordionIndex + ")").css("backgroundColor", accordionBgSelected);
+			$(".accordionContent").css("height", "0px");
+
+			$(".accordionContent:eq(" + accordionIndex + ")").css("height", "300px");
+		}
+		function accordionTitleClickHandler() {
+			accordionIndex = $(this).attr("accordionIndex");
+			$(".accordionTitle").css("backgroundColor", accordionBgNormal);
+			$(this).css("backgroundColor", accordionBgSelected);
+			$(".accordionContent").css("height", "0px");
+			console.log($(this).next().css("height"));
+			//$(this).next().css("height","300px");
+			if ($(this).next().css("height") > "150px") {
+				$(this).next().css("height", "0px");
+			} else {
+				$(this).next().css("height", "300px");
+			}
+		}
+		function accordionTitleMouseenterHandler() {
+			if ($(this).attr("accordionIndex") != accordionIndex) {
+				$(this).css("backgroundColor", accordionBgHover);
+			}
+		}
+		function accordionTitleMouseleaveHandler() {
+			if ($(this).attr("accordionIndex") != accordionIndex) {
+				$(this).css("backgroundColor", accordionBgNormal);
+			}
 		}
 
 	</script>
 </head>
 
-<body>	
-	<h1>Accordion 01</h1>
+<body>
+	<h1>Accordion</h1>
 	<!--Accordion最外圍元件 id="myAccordion"-->
 	<div id="myAccordion">
 		<!--標題元件　class="accordionTitle"-->
@@ -79,7 +117,9 @@
 		<div class="accordionContent">
 			<img src="../images/ch03_mickey.jpg" />
 			<p>
-				Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had no gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to play piano in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
+				Mickey has been through many design changes from 1928. In his first cartoon Plane Crazy, Mickey had no
+				gloves or shoes and his eyes were large black ovals. He first wore gloves when he sat down to play piano
+				in the Opry House and by 1939 in The Pointer Mickey was shown with a pupil.
 			</p>
 		</div>
 
@@ -87,7 +127,9 @@
 		<div class="accordionContent">
 			<img src="../images/ch03_minnie.jpg" />
 			<p>
-				Minnie was designed in the fashion of a fashion girl and created to be the lover of Mickey Mouse. Although she always appears in red, she was originally designed to have a blue and green outfit. In the 1929 cartoon The Karnival Kid it was also revealed that she wears black stockings.
+				Minnie was designed in the fashion of a fashion girl and created to be the lover of Mickey Mouse.
+				Although she always appears in red, she was originally designed to have a blue and green outfit. In the
+				1929 cartoon The Karnival Kid it was also revealed that she wears black stockings.
 			</p>
 		</div>
 
@@ -95,7 +137,9 @@
 		<div class="accordionContent">
 			<img src="../images/ch03_goofy.jpg" />
 			<p>
-				Goofy made his first appearance in the 1932 classic, Mickey’s Revue. He’s had some name changes over the years, being called Dippy Dawg and Dippy the Goof before becoming known simply as Goofy, one of Mickey’s hilarious pals that we have all come to know and love. Garsh!
+				Goofy made his first appearance in the 1932 classic, Mickey’s Revue. He’s had some name changes over the
+				years, being called Dippy Dawg and Dippy the Goof before becoming known simply as Goofy, one of Mickey’s
+				hilarious pals that we have all come to know and love. Garsh!
 			</p>
 		</div>
 
@@ -103,7 +147,9 @@
 		<div class="accordionContent">
 			<img src="../images/ch03_donald.jpg" />
 			<p>
-				Donald was first seen in The Wise Little Hen back in 1934. He was a big hit with audiences and his popularity continued to increase until he eventually starred in 128 cartoons and appeared in over 150 theatrical films! That’s more than any other Disney character, even Mickey!
+				Donald was first seen in The Wise Little Hen back in 1934. He was a big hit with audiences and his
+				popularity continued to increase until he eventually starred in 128 cartoons and appeared in over 150
+				theatrical films! That’s more than any other Disney character, even Mickey!
 			</p>
 		</div>
 
