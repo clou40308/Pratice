@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>cart</title>
+    <style>
+        #animate {
+            width: 0px;
+            height: 50px;
+            background: orange;
+            border-radius: 25px;
+            text-align: center;
+            font-size: 40px;
+            line-height: 50px;
+            margin: auto;
+            overflow: hidden;
+            white-space: pre;
+        }
+    </style>
+    <script type="text/javascript" src="../jquery.js"></script>
+    <script>
+        $(document).ready(init);
+        function init() {
+            $("#add").click(addHandler);
+        }
+        function addHandler() {
+            $("#animate").animate({ "width": "400px" }, 1200)
+                .delay(2000)
+                .animate({ "width": "0px" }, 1200);
+        }
+        //$("#animate").css("backgroundImage","url(abc.jpg)");
+
+    </script>
+</head>
+
+<body>
+
+    <button id="add">Add to cart!</button>
+    <div id="animate">Item Added!</div>
+</body>
+
+</html>
